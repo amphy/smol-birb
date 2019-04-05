@@ -1,8 +1,16 @@
 from flask import Flask
+import cassiopeia as cass
+import os
+
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def display_build():
+	# Get summoner
+	# Get Match
+	# Get items for champion from Match
+	# display items and champion picture on page
+
     return 'Hello, World!'
 
 if __name__ == "__main__":
