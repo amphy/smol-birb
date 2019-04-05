@@ -13,7 +13,7 @@ def display_build():
 	region = "NA"
 	summoner_name = "Olysia"
 
-	cass.set_riot_api_key(os.environ.get("RIOTAPI_key", "None"))
+	cass.set_riot_api_key(os.environ.get("RIOTAPI_KEY", "None"))
 
 	champion_id_to_name_mapping = {champion.id: champion.name for champion in cass.get_champions(region=region)}
 
