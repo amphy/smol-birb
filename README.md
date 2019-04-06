@@ -20,6 +20,7 @@ Objectives for this course:
 ### Accounts
 - [GitHub Account](https://github.com/)
 - [Heroku Account](https://heroku.com/)
+- [Riot API Developer](https://developer.riotgames.com/)
 
 You will also need your favorite text editor. I personally like to use [Sublime Text](https://www.sublimetext.com/).
 
@@ -29,11 +30,11 @@ The tutorial will be broken into a few steps.
 
 ### Setting up your environment
 
-First, sign up for both [Heroku](https://heroku.com/) and [GitHub](https://github.com/).
+First, sign up for both [Heroku](https://heroku.com/) and [GitHub](https://github.com/). Also sign up for an account on the [Riot API Developer](https://developer.riotgames.com/) website. Feel free to go ahead and generate a **Development API Key** after you register since we will need it later.
 
 Next, make sure you have Python 3 installed. If you don't, there are a [few tutorials](https://realpython.com/installing-python/) on the web you can find for your particular system.
 
-Once you have Python 3 installed, you can install Flask and Cassiopeia using pip or pip3.
+Once you have Python 3 installed, you can install Flask and Cassiopeia using `pip` or `pip3`. You may want to do this in a `virtualenv` ([more info](https://realpython.com/python-virtual-environments-a-primer/)), but for this tutorial, it isn't necessary.
 
 ```
 $ pip3 install cassiopeia
@@ -48,10 +49,41 @@ Next, we will [clone this folder](https://help.github.com/en/articles/cloning-a-
 $ git clone [clone URL]
 ```
 
-Then, just navigate to your cloned directory and we can begin to code the application!
+Then, just navigate to your cloned directory and we can begin to setup and code the application!
 
-### Coding the application
-TBC, but for the most part, can just use the code in smol-birb repository
+### Setting up and coding the application
+
+First, make sure you've generated a [development API key](https://developer.riotgames.com/api-keys.html) for the Riot API. There are instructions on the linked page as well as more information about the different type of API keys. The most important thing to remember is that we **DO NOT** want to ever expose the key anywhere, so keep that in mind when developing future applications. To avoid that, we will put our API key in the environment variables (which we will discuss later), but you could also use a config file that is [gitignored](https://help.github.com/en/articles/ignoring-files.
+
+Next, let's set up our files. In the folder that was created when you cloned your repository (should be the name of your repository), we want to create the following structure (README.md should already be included):
+
+```
+your-repository-name
+  |_ static
+  |_ templates
+  |_ README.md
+```
+
+As a note, I use the term directory and folder interchangeably.
+
+Our `root` directory is the directory that everything is located in (in this case, `your-repository-name`).
+
+The `static` folder will be used for any resources that won't change once the app is built (i.e. CSS files, JS files, image files) and the `templates` folder will contain our HTML templates for our site. These templates will allow us to have a standardized look for each page, but still be able to change the information inside the page.
+
+In our `root` directory, we want to create a file called `server.py`. The `.py` specifies that it is a Python file. With this, we have finished setting up the structure of the application and can now begin coding!
+
+**TBC, but to start you can take a look at server.py**
+
+To run the app locally, we will want to first set up our environmental variables using:
+
+```
+export FLASK_APP=server.py
+export RIOTAPI_KEY=[Your Key Here]
+```
+
+This sets up our Flask app as server.py and also hides away our Riot API Key (so we don't accidentally reveal it).
+
+Then, you can run `python3 server.py` or `python server.py` to start the application locally.
 
 ### Deploy to Heroku
 
